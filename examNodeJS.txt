@@ -1,0 +1,62 @@
+I) A quoi servent les fichiers bundles.js et bundles.css 
+   Reponse: on compresse les fichiers pour minimiser l'espace utilisé(espace) 
+   & minimiser le nombre de requetes.
+
+II) A quoi servent et comment fonctionnent les /routes pour faire tourner un 
+    API REST
+    Reponse:
+
+III) Ecrire un fichier package.json "type" le plus complet possible !
+     (ecrire des scripts: ex: nonmon,linter)
+
+IV) Donner toutes les commandes npm que l'on connait 
+    (run, start, test, install (--save (save = dependence ignoré lors de la 
+    mise en production) -dev -g) + explications de chaque commande)
+
+V) Qu'est-ce qu'un callback Node.js ?? (définition exacte)
+
+VI) Definition exacte d'une "promise" + exemple
+
+VII) Expliquer toutes les utilisations d'un module Node.js (comment le créer 
+    et le consomer dans d'autres parties de code) + 
+    exemple(require+utilisation de la fonction récuperer)	
+
+VIII) Nom du standard Javascript actuel 
+      Reponse :	EcmaScript-2015
+
+IX) Expliquer se qu'est npm "as a build tool"
+
+X) Donner des nom de logiciels concurants a npm en tant que gestionnaire 
+   de paquets javascript
+
+   Reponse : Yarn("clone" de npm),Yeoman	
+
+XI) Expliquer les différences entre Angular et Node.js
+
+XII) Donner la définition d'un "linter"
+     Reponse: fait de l'analyse statique de code  -> tests sans execution, 
+     corrige et ameliore la qualité du code		
+
+XIII) Donner le nom du Framework le plus celebre plus réaliser un site web
+      réponse: Express
+
+XIV) Expliquer les principaux risques de sécurité que l'on peut rencontrer 
+     avec l'utilisation de node.js	
+
+XV)  Quel est le site web qu'il faut consulter pour savoir si une 
+     fonctionnalité  javascript est suporter par le navigateur X ?
+     Reponse: CanIuse.com		
+
+XVI) Quel type de programmation ne doit pas etre utilisé avec javascript 
+     même si c'est possible
+     reponse: La programmation Synchrone
+
+XVII)Donner le nom du sevreur web avec lequel node.js donne le meilleur de 
+     ses performance et pourquoi
+     reponse : Nginx car il travaille par "event"
+
+XVIII) Donner le nom d'un serveur web qui ne donne pas le meilleur de ses 
+       performance avec node.js
+       reponse: Apache car il travaille en mode synchrone
+
+
