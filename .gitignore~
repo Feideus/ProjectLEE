@@ -1,6 +1,5 @@
 /apiserver/node_modules
 /jsau-desktop/node_modules
-/jsau-desktop/npm-debug.log
 /jsau-webapp/bundle
 /jsau-webapp/node_modules
 /webserver/node_modules
