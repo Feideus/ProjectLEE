@@ -5,3 +5,6 @@
 /jsau-webapp/node_modules
 /webserver/node_modules
 /webserver/testExpress/node_modules
+README.txt
+local.test.conf
+examNodeJS.txt
