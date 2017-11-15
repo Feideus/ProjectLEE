@@ -7,3 +7,4 @@
 ./README.txt
 ./local.test.conf
 ./examNodeJS.txt
+/webserver/public/javascripts/browserify_test_bundle.js

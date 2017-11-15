@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build:js": "browserify public/javascripts/my_shared_code_ui.js > public/javascripts/browserify_test_bundle.js",
+    "build:js": "browserify main.js > public/javascripts/browserify_test_bundle.js",
     "start": "node app.js"
-  },
+
+   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "browserify": "14.4.0",
