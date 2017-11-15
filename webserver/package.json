@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build:js": "browserify main.js > public/javascripts/browserify_test_bundle.js",
-    "start": "node app.js"
-
+    "start": "node app.js",
+    "clean": "rm public/javascripts/browserify_test_bundle.js"	
    },
   "dependencies": {
     "body-parser": "~1.18.2",
