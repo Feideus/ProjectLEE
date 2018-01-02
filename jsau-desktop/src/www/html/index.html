@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Desktop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/ui.css"/>
+   
+  </head>
+  <body>
+      <script src="../js/callAPI.js"></script>
+      <script src="../js/my_shared_code_ui.js"></script>
+      <div id="exemple"><h1>jsau-desktop</h1></div>
+     <div><p id ="APIText"></p></div>
+     <div><textarea id="path"></textarea></div>
+     <script> document.getElementById("APIText").innerHTML = "Waiting for request"</script>
+     <button onclick="calcul_arbo()">calculer l'arborescence</button>
+      <button onclick = "callAPI(content2.toString())">Call the API</button>
+      <button onclick = "writeContent()">my_shared_code_test</button>
+    <div>
+      <div id="message-pane"/>
+    </div>
+        <script>
+            window.addEventListener('load', function () {
+                console.log('This function is executed once the page is fully loaded');
+              });
+        </script>
+  </body>
+</html>
