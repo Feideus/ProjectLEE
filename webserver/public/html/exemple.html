@@ -6,15 +6,25 @@
     </head>
 
     <body>
-        <header>Présence en amphi</header>
+        <header>Partenarias Paris 13</header>
+        <script>fillPartnershipGrid()</script>
         <section class="container">
-            <div id="divImage"><img src="" alt="aucune image"/></div>
+            <div id="divAffichagePartenaria">
+                <table>
+                    <tr class="grid">
+                       <th class="enteteGrid">ID</th>
+                       <th class="enteteGrid">Nom partenaire</th>
+                       <th class="enteteGrid">Type</th>
+                       <th class="enteteGrid">Date</th>
+                    </tr>
+                    
+                </table>
+            </div>
             <div id="divButtons">
-                <button onclick="identifierCohorte()">identifier cohorte</button>
-                <p id="nomEtudiant"></p>
-                <button onclick="presentAbscent(true)">présent</button>
-                <button onclick="presentAbscent(false)">Abscent</button>
-                <button onclick="validerListePresence()">Valider les présences</button>
+                <button onclick="window.location.href='creation.html'">Nouveau Partenaria</button>
+                <button onclick="window.location.href='modification.html'">Modifier Partenaria</button>
+                <button>Supprimer partenaria</button>
+                <button onclick="OptimiserFiches()">Optimiser les fiches</button>
             </div>
         </section>
     </body>
