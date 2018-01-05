@@ -1,4 +1,4 @@
-var infosPartenarias = [{}] // liste de liste id,nom,type,date
+var infosPartenarias = [{Id:1,Nom:"Test",Type:"commercial"}]; // liste de liste id,nom,type,date
 
 function fillPartnershipGrid()
 {
@@ -7,9 +7,14 @@ function fillPartnershipGrid()
 
 function fillThisPartnership()
 {
+    alert("coucou");
     var idPartnership = $_GET('id');
+    alert(idPartnership);
     var lePartnership = infosPartenarias.pop(idPartnership);
-    //affichage du partenaria dans le <tr>
+    
+    document.getElementById("textId").innerHTML = lePartnership.Id;
+    document.getElementById("textNom").innerHTML = lePartnership.Nom;
+    document.getElementById("textType").innerHTML = lePartnership.Type;
     
 }
 
@@ -26,3 +31,20 @@ function $_GET(param)
     }
     return vars;
 }
+
+function validerChangementsPartenaria()
+{
+    var nouvelId = 0;
+    var nouveauNom = "";
+    var nouveauType = "";
+
+    if(nouvelId !== 0 || nouveauNom !== "" || nouveauType !== "")
+    {
+        httpGetAsync("local.test/responseApi?id="+nouvelId+"&nom="+nouveauNom+"&type="+nouveauType);
+    }
+    else
+    {
+        alert("Les données entrées sont incorrectes");
+    }
+}
+

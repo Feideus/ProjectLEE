@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../stylesheets/stylePerso.css">
-        <script src="../javascripts/coreFunctions.js"></script>
+        <script src="../javascripts/CoreFunctions.js"></script>
     </head>
     <body>
         <header>Modification Partenaires</header>
@@ -24,13 +24,13 @@ and open the template in the editor.
                 </tr>
             </table>
             <form class="form">
-                    <textarea class="formText">ID</textarea>
-                    <textarea class="formText">Nom</textarea>
-                    <textarea class="formText">Type</textarea>
-                    <textarea class="formText">Date </textarea>
-                    <button type="submit">Valider</button>
+                    <textarea class="formText" id="textId">ID</textarea>
+                    <textarea class="formText" id="textNom">Nom</textarea>
+                    <textarea class="formText" id="textType">Type</textarea>
+                    <textarea class="formText" id="textDate">Date </textarea>
+                    <button type="submit" onclick="validerChangementsPartenaria()">Valider</button>
                 </form>
-            <script>fillThisPartnership()</script>
+            <script>fillThisPartnership();</script>
         </div>
     </body>
 </html>
