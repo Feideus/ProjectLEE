@@ -5,9 +5,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var savedata = require('./routes/savedata');
 
 var app = express();
 
@@ -26,7 +27,51 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/savedata', savedata);
+
+app.get('/deletedata', function(req,res){
+      var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "DATABASE1"
+    });
+
+    //res.send((req.query.num_sir));
+    var num_sir = parseInt(req.query.num_sir);
+
+    con.connect(function(err) 
+    {
+      if (err) throw err;
+      con.query("DELETE FROM partenaires WHERE num_sir = "+num_sir, function (err, result) {
+      if (err) res.send(err);
+      res.send("query success");
+    });
+    });
+});
+
+app.post('/add', function(req,res){
+      var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "DATABASE1"
+    });
+
+    var num_sir = req.query.num_sir;
+    var nom = req.query.Nom;
+    var categorie = req.query.categorie;
+
+    con.connect(function(err) 
+    {
+      if (err) throw err;
+      con.query("INSERT INTO partenaires VALUES (num_sir = "+num_sir+" , nom="+nom+" , categorie = "+categorie+")", function (err, result) {
+      if (err) 
+      res.send("Insertion OK");
+    });
+    });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,9 +91,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+
 module.exports = app;
 
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
+
+      

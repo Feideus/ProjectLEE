@@ -11,6 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../stylesheets/stylePerso.css">
         <script src="../javascripts/CoreFunctions.js"></script>
+        <script src="../javascripts/getrequest.js"></script>
     </head>
     <body>
         <header>Modification Partenaires</header>
@@ -20,17 +21,18 @@ and open the template in the editor.
                     <th class="enteteGrid">ID</th>
                     <th class="enteteGrid">Nom partenaire</th>
                     <th class="enteteGrid">Type</th>
-                    <th class="enteteGrid">Date</th>
                 </tr>
             </table>
             <form class="form">
                     <textarea class="formText" id="textId">ID</textarea>
                     <textarea class="formText" id="textNom">Nom</textarea>
                     <textarea class="formText" id="textType">Type</textarea>
-                    <textarea class="formText" id="textDate">Date </textarea>
                     <button type="submit" onclick="validerChangementsPartenaria()">Valider</button>
                 </form>
-            <script>fillThisPartnership();</script>
+            <script>
+                    infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
+                    fillThisPartnership(infosPartenarias);</script>
         </div>
+        <button onclick="window.location.href='exemple'"></button>
     </body>
 </html>

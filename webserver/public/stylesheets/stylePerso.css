@@ -5,6 +5,15 @@ header{
     text-align: center;
 }
 
+td
+{
+    border:1px solid black;
+}
+
+.divData{
+    background: #99ccff;
+}
+
 button{
     display:block;
 }
@@ -19,7 +28,6 @@ button{
     margin: auto;
     padding: 10px;
     margin-top: 2%;
-    
 }
 #divAffichagePartenaria {
     background: #99ccff;

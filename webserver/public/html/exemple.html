@@ -2,12 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../stylesheets/stylePerso.css">
-        <script src="../javascripts/coreFunctions.js"></script>
+        <script src="../javascripts/CoreFunctions.js"></script>
+        <script src="../javascripts/getrequest.js"></script>
+        
     </head>
 
     <body>
         <header>Partenarias Paris 13</header>
-        <script>fillPartnershipGrid()</script>
         <section class="container">
             <div id="divAffichagePartenaria">
                 <table>
@@ -15,18 +16,29 @@
                        <th class="enteteGrid">ID</th>
                        <th class="enteteGrid">Nom partenaire</th>
                        <th class="enteteGrid">Type</th>
-                       <th class="enteteGrid">Date</th>
                     </tr>
                     
                 </table>
+                <table id="divData">
+                    <tbody id="tbody"></tbody>
+                </table>
             </div>
             <div id="divButtons">
+                
+                
                 <button onclick="window.location.href='creation.html'">Nouveau Partenaria</button>
-                <button onclick="window.location.href='modification.html'">Modifier Partenaria</button>
-                <button>Supprimer partenaria</button>
+                <button onclick="window.location.href=''+getGoodUrl('modification')">Modifier Partenaria</button><textarea id="num_sir_update">num_sir</textarea>
+                <button onclick="supprimerParternaria(detecNumSir('div_suppr'))">Supprimer partenaria</button><textarea id="div_suppr">num_sir</textarea>
                 <button onclick="OptimiserFiches()">Optimiser les fiches</button>
-            </div>
+                <button onclick="window.location.href='tests.html'">Test connection</button>
+                        
+            </div>     
         </section>
+        <script> 
+                 infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
+                 console.log(infosPartenarias);
+                 fillPartnershipGrid(infosPartenarias);
+        </script>
     </body>
     
 </html>
