@@ -1,39 +1,50 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
-        <link rel="stylesheet" type="text/css" href="../stylesheets/stylePerso.css">
+        <meta charset="utf-8">
+        <title>Partnership Manager</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="../javascripts/CoreFunctions.js"></script>
         <script src="../javascripts/getrequest.js"></script>
         
     </head>
 
     <body>
-        <header>Partenarias Paris 13</header>
-        <section class="container">
-            <div id="divAffichagePartenaria">
-                <table>
+        <header class='page-header'><h3 style='text-align:center'>Partenariats Paris 13</h3></header>
+        <div class="row">
+            
+        
+        <section class="container-fluid">
+            <div class="col-sm-8">
+                <table class="table">
                     <tr class="grid">
-                       <th class="enteteGrid">ID</th>
-                       <th class="enteteGrid">Nom partenaire</th>
-                       <th class="enteteGrid">Type</th>
+                       <th class="text-primary">ID</th>
+                       <th class="text-primary">Nom partenaire</th>
+                       <th class="text-primary">Type</th>
                     </tr>
                     
                 </table>
-                <table id="divData">
+                <table class="table">
                     <tbody id="tbody"></tbody>
                 </table>
             </div>
-            <div id="divButtons">
+            <div class="col-sm-4">
                 
                 
-                <button onclick="window.location.href='creation.html'">Nouveau Partenaria</button>
-                <button onclick="window.location.href=''+getGoodUrl('modification')">Modifier Partenaria</button><textarea id="num_sir_update">num_sir</textarea>
-                <button onclick="supprimerParternaria(detecNumSir('div_suppr'))">Supprimer partenaria</button><textarea id="div_suppr">num_sir</textarea>
-                <button onclick="OptimiserFiches()">Optimiser les fiches</button>
-                <button onclick="window.location.href='tests.html'">Test connection</button>
+                <button class="btn-primary" onclick="window.location.href='creation.html'">Nouveau Partenaria</button><br/>
+                <button class="btn-success" onclick="window.location.href=''+getGoodUrl('modification')">Modifier Partenaria</button><input id="num_sir_update" value="SIREN"/><br/>
+                <button class="btn-info" onclick="supprimerParternaria(detecNumSir('div_suppr'))">Supprimer partenaria</button><input id="div_suppr" value="SIREN"/><br/>
+                <button class="btn-warning" onclick="OptimiserFiches()">Optimiser les fiches</button><br/>
+                <button class="btn-danger" onclick="window.location.href='tests.html'">Test connection</button>
                         
-            </div>     
+            </div>
+        
         </section>
+        </div>    
         <script> 
                  infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
                  console.log(infosPartenarias);

@@ -59,15 +59,41 @@ app.post('/add', function(req,res){
     });
 
     var num_sir = req.query.num_sir;
-    var nom = req.query.Nom;
+    var nom = req.query.nom;
     var categorie = req.query.categorie;
+    
+    console.log(num_sir,nom,categorie);
 
     con.connect(function(err) 
     {
       if (err) throw err;
-      con.query("INSERT INTO partenaires VALUES (num_sir = "+num_sir+" , nom="+nom+" , categorie = "+categorie+")", function (err, result) {
-      if (err) 
+      con.query("INSERT INTO partenaires VALUES ("+num_sir+", '"+nom+"', '"+categorie+"')", function (err, result) {
+      if (err) res.send("erreur");
       res.send("Insertion OK");
+    });
+    });
+});
+
+app.post('/modify', function(req,res){
+      var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "DATABASE1"
+    });
+
+    var num_sir = req.query.num_sir;
+    var nom = req.query.nom;
+    var categorie = req.query.categorie;
+    
+    console.log(num_sir,nom,categorie);
+
+    con.connect(function(err) 
+    {
+      if (err) throw err;
+      con.query("UPDATE partenaires SET num_sir="+num_sir+" ,nom= '"+nom+"', categorie= '"+categorie+"' WHERE num_sir= "+num_sir, function (err, result) {
+      if (err) res.send("erreur");
+      res.send("Update OK");
     });
     });
 });

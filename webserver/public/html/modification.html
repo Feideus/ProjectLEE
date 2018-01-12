@@ -1,38 +1,45 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="fr">
     <head>
-        <title>Modification</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../stylesheets/stylePerso.css">
+        <meta charset="utf-8">
+        <title>Partnership Manager</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="../javascripts/CoreFunctions.js"></script>
         <script src="../javascripts/getrequest.js"></script>
     </head>
     <body>
-        <header>Modification Partenaires</header>
+        <header class='page-header'><h3 style='text-align:center'>Partenariats Paris 13</h3></header>
         <div>
-            <table>
-                <tr class="grid">
-                    <th class="enteteGrid">ID</th>
-                    <th class="enteteGrid">Nom partenaire</th>
-                    <th class="enteteGrid">Type</th>
-                </tr>
-            </table>
-            <form class="form">
-                    <textarea class="formText" id="textId">ID</textarea>
-                    <textarea class="formText" id="textNom">Nom</textarea>
-                    <textarea class="formText" id="textType">Type</textarea>
-                    <button type="submit" onclick="validerChangementsPartenaria()">Valider</button>
-                </form>
-            <script>
+            <section class="container-fluid">
+            </section>
+           <section class="container-fluid">
+            <div class="col-sm-4">
+                <form>
+                    <div class="form-group">
+                        <label for="text">SIREN</label>
+                        <input  class="form-control" id="num_sir">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Nom</label>
+                        <input  class="form-control" id="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Categorie</label>
+                        <input  class="form-control" id="categorie">
+                    </div>
+                    <button type="submit" class="btn btn-default" onclick="validerModificationPartnership()">Submit</button>
+                </form> 
+            
+            </div>
+           </section>
+            <script>    
                     infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
                     fillThisPartnership(infosPartenarias);</script>
-        </div>
-        <button onclick="window.location.href='exemple'"></button>
+        </div><br/><br/>
+        <button class="btn-primary" onclick="window.location.href='exemple.html'">Retour</button>
     </body>
 </html>

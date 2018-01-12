@@ -8,8 +8,8 @@ function fillPartnershipGrid(infosPartenarias)
    for(x = 0; x<infosPartenarias.length;x++)
    {
             console.log(infosPartenarias[x].num_sir);
-            var tr = "<tr>";
-            tr+="<td>"+infosPartenarias[x].num_sir+"</td>"+"<td>"+infosPartenarias[x].nom+"</td>"+"<td>"+infosPartenarias[x].categorie+"</td></tr>";
+            var tr = "<tr class='success'>";
+            tr+="<td class='text-active'>"+infosPartenarias[x].num_sir+"</td>"+"<td class='text-active'>"+infosPartenarias[x].nom+"</td>"+"<td class='text-active'>"+infosPartenarias[x].categorie+"</td></tr>";
 
 
             tbody.innerHTML += tr;
@@ -30,9 +30,9 @@ function fillThisPartnership(infosPartenarias)
             
         }
     }
-    document.getElementById("textId").innerHTML = lePartnership.num_sir;
-    document.getElementById("textNom").innerHTML = lePartnership.nom;
-    document.getElementById("textType").innerHTML = lePartnership.categorie;
+    document.getElementById("num_sir").value = lePartnership.num_sir;
+    document.getElementById("nom").value = lePartnership.nom;
+    document.getElementById("categorie").value = lePartnership.categorie;
 }
 
 function $_GET(param) 
@@ -55,9 +55,9 @@ function validerCreationPartenaria()
     var nouveauNom = "";
     var nouveauType = "";
     
-    nouvelId = document.getElementById("textId").value;
-    nouveauNom = document.getElementById("textNom").value;
-    nouveauType = document.getElementById("textType").value;
+    nouvelId = document.getElementById("num_sir").value
+    nouveauNom = document.getElementById("nom").value;
+    nouveauType = document.getElementById("categorie").value;
     
     httpPost("http://local.test:3000/add?num_sir="+nouvelId+"&nom="+nouveauNom+"&categorie="+nouveauType);
 }
@@ -73,15 +73,12 @@ function validerModificationPartnership()
     var nouvelId = 0;
     var nouveauNom = "";
     var nouveauType = "";
+    
+    nouvelId = document.getElementById("num_sir").value
+    nouveauNom = document.getElementById("nom").value;
+    nouveauType = document.getElementById("categorie").value;
 
-    if(nouvelId !== 0 || nouveauNom !== "" || nouveauType !== "")
-    {
-        httpGetAsync("local.test/responseApi?id="+nouvelId+"&nom="+nouveauNom+"&type="+nouveauType);
-    }
-    else
-    {
-        alert("Les données entrées sont incorrectes");
-    }
+    httpPost("http://local.test:3000/modify?num_sir="+nouvelId+"&nom="+nouveauNom+"&categorie="+nouveauType);
 }
 
 
