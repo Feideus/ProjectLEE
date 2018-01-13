@@ -19,7 +19,8 @@
         <div><p id="res-test" class="text-primary"></p></div>
         <div id="qunit-fixture">
             <script> infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
-                     document.getElementById("res-test").innerHTML = "L'intégrité du jeu de données est: "+checkDataIntegrity(infosPartenarias);
+                    console.log(infosPartenarias);
+                     document.getElementById("res-test").innerHTML = "L'homogénéité du jeu de données est: "+checkDataIntegrity(infosPartenarias);
             </script>
         </div>
                 <button class="btn-primary" onclick="window.location.href='exemple.html'">Retour</button>

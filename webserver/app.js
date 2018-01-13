@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', index);
-app.use('/savedata', savedata);
+app.use('/data', index);
 
 app.get('/deletedata', function(req,res){
       var con = mysql.createConnection({
@@ -36,9 +36,8 @@ app.get('/deletedata', function(req,res){
       password: "root",
       database: "DATABASE1"
     });
-
-    //res.send((req.query.num_sir));
-    var num_sir = parseInt(req.query.num_sir);
+    
+    var num_sir = req.query.num_sir;
 
     con.connect(function(err) 
     {
@@ -61,8 +60,7 @@ app.post('/add', function(req,res){
     var num_sir = req.query.num_sir;
     var nom = req.query.nom;
     var categorie = req.query.categorie;
-    
-    console.log(num_sir,nom,categorie);
+
 
     con.connect(function(err) 
     {
@@ -81,19 +79,18 @@ app.post('/modify', function(req,res){
       password: "root",
       database: "DATABASE1"
     });
+    
 
     var num_sir = req.query.num_sir;
     var nom = req.query.nom;
     var categorie = req.query.categorie;
-    
-    console.log(num_sir,nom,categorie);
-
+        
     con.connect(function(err) 
     {
-      if (err) throw err;
-      con.query("UPDATE partenaires SET num_sir="+num_sir+" ,nom= '"+nom+"', categorie= '"+categorie+"' WHERE num_sir= "+num_sir, function (err, result) {
-      if (err) res.send("erreur");
-      res.send("Update OK");
+        if (err) throw err;
+        con.query("UPDATE partenaires SET num_sir="+num_sir+" ,nom= '"+nom+"', categorie= '"+categorie+"' WHERE num_sir= "+num_sir, function (err, result) {
+        if (err) res.send("erreur");
+        res.send("Update OK");
     });
     });
 });
