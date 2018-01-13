@@ -1,3 +1,6 @@
+/* eslint no-unused-vars: "off"*/
+/* eslint no-undef: "off"*/
+
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -13,6 +16,3 @@ function httpPost(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-
-
-    console.log("script Ready");

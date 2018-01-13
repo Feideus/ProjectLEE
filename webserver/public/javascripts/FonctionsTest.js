@@ -8,7 +8,7 @@ function checkDataIntegrity(Partnerships){
     {
         for(var j in Partnerships)
         {
-            if(Partnerships[i].Id === Partnerships[j].Id)
+            if(Partnerships[i].num_sir === Partnerships[j].num_sir)
             {
                 integre = false;
             }
@@ -16,3 +16,7 @@ function checkDataIntegrity(Partnerships){
     }
     return integre;
 }
+
+console.log("script test ready!");
+
+

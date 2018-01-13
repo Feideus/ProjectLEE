@@ -1,13 +1,12 @@
-
+/* eslint no-unused-vars: "off"*/
+/* eslint no-undef: "off"*/
 
 function fillPartnershipGrid(infosPartenarias)
 {
-   console.log(infosPartenarias[0]);
    var x = 0;
    var tbody = document.getElementById('tbody');
    for(x = 0; x<infosPartenarias.length;x++)
    {
-            console.log(infosPartenarias[x].num_sir);
             var tr = "<tr class='success'>";
             tr+="<td class='text-active'>"+infosPartenarias[x].num_sir+"</td>"+"<td class='text-active'>"+infosPartenarias[x].nom+"</td>"+"<td class='text-active'>"+infosPartenarias[x].categorie+"</td></tr>";
 
@@ -63,8 +62,7 @@ function validerCreationPartenaria()
 }
 
 function supprimerParternaria(num_sir)
-{   
-    console.log(num_sir);
+{  
     httpGet("http://local.test:3000/deletedata?num_sir="+num_sir);
 }
 
@@ -74,7 +72,7 @@ function validerModificationPartnership()
     var nouveauNom = "";
     var nouveauType = "";
     
-    nouvelId = document.getElementById("num_sir").value
+        nouvelId = document.getElementById("num_sir").value
     nouveauNom = document.getElementById("nom").value;
     nouveauType = document.getElementById("categorie").value;
 
@@ -103,9 +101,3 @@ function detecNumSir(iddiv)
 {
     return document.getElementById(iddiv).value;
 }
-
-
-
-
-
-console.log("core script ready!");

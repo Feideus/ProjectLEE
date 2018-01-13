@@ -98,6 +98,10 @@ app.post('/modify', function(req,res){
     });
 });
 
+app.post('/testpost', function(req,res){
+      res.send("POST OK !");
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
