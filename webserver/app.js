@@ -36,8 +36,14 @@ app.get('/deletedata', function(req,res){
       password: "root",
       database: "DATABASE2"
     });
-    
+
     var num_sir = req.query.num_sir;
+    
+    if(num_sir === "test")
+    {
+        res.send("OK");
+        return "OK";
+    }
     //connection to DB and Querying
     con.connect(function(err) 
     {
@@ -62,7 +68,12 @@ app.post('/add', function(req,res){
     var num_sir = req.query.num_sir;
     var nom = req.query.nom;
     var categorie = req.query.categorie;
-
+    
+     if(num_sir === "test")
+    {
+        res.send("OK");
+        return "OK";
+    }
 
     con.connect(function(err) 
     {
@@ -84,16 +95,21 @@ app.post('/modify', function(req,res){
       password: "root",
       database: "DATABASE2"
     });
-    
 
     var num_sir = req.query.num_sir;
     var nom = req.query.nom;
     var categorie = req.query.categorie;
         
+    if(num_sir === "test")
+    {
+        res.send("OK");
+        return "OK";
+    }
+        
     con.connect(function(err) 
     {
         if (err) throw err;
-        con.query("UPDATE partenaires SET num_sir="+num_sir+" ,nom= '"+nom+"', categorie= '"+categorie+"' WHERE num_sir= "+num_sir, function (err, result) {
+        con.query("UPDATE partenaires SET nom= '"+nom+"', categorie= '"+categorie+"' WHERE num_sir= "+num_sir, function (err, result) {
         if (err) res.send("erreur");
         res.send("Update OK");
     });

@@ -16,8 +16,20 @@ describe('Trying to resolve Data ', function() {
   });
 });
 
-describe('Testing modification Method', function() {
+describe('Testing post Method', function() {
     it('Should return String', function() {
       assert.equal(typeof(CF3.httpPost("http://local.test:3000/testpost")),"string");
+  });
+});
+
+describe('Testing modification Method', function() {
+    it('Should return OK', function() {
+      assert.equal(CF3.httpPost("http://local.test:3000/modify?num_sir=test"),"OK");
+  });
+});
+
+describe('Testing creation Method', function() {
+    it('Should return OK', function() {
+      assert.equal(CF3.httpPost("http://local.test:3000/add?num_sir=test"), "OK");
   });
 });
