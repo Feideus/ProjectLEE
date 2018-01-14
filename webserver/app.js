@@ -78,7 +78,7 @@ app.post('/add', function(req,res){
     con.connect(function(err) 
     {
       if (err) throw err;
-      con.query("INSERT INTO partenaires VALUES ("+num_sir+", '"+nom+"', '"+categorie+"')", function (err, result) {
+      con.query("INSERT INTO partenaires VALUES ("+num_sir+", '"+nom+"', '"+categorie+"', '"+nom+"')", function (err, result) {
       if (err) res.send("erreur");
       res.send("Insertion OK");
     });
