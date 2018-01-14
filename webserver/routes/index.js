@@ -16,7 +16,7 @@ router.get('/data', function(req, res, next) {
     con.connect(function(err) 
     {
       if (err) throw err;
-      con.query("select * from partenaires", function (err, result) {
+      con.query("select DISTINCT * from partenaires", function (err, result) {
       if (err) throw err;
         res.json(result);
      });
