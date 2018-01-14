@@ -1,7 +1,6 @@
-
+//requireing dependencies
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -16,8 +15,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static('public'))
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -25,20 +22,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// Only /data is use as a route, the rest is set directly in this file
 app.use('/', index);
 app.use('/data', index);
+    
 
+// Gets one SIREN number and deletes it from the DB    
 app.get('/deletedata', function(req,res){
+    //settings for db
       var con = mysql.createConnection({
       host: "localhost",
       user: "root",
       password: "root",
-      database: "DATABASE1"
+      database: "DATABASE2"
     });
     
     var num_sir = req.query.num_sir;
-
+    //connection to DB and Querying
     con.connect(function(err) 
     {
       if (err) throw err;
@@ -49,12 +49,14 @@ app.get('/deletedata', function(req,res){
     });
 });
 
+// taking SIREN number, name and category entered as POST arguments and adds a row
+// in the DB with these values
 app.post('/add', function(req,res){
       var con = mysql.createConnection({
       host: "localhost",
       user: "root",
       password: "root",
-      database: "DATABASE1"
+      database: "DATABASE2"
     });
 
     var num_sir = req.query.num_sir;
@@ -72,12 +74,15 @@ app.post('/add', function(req,res){
     });
 });
 
+
+// taking SIREN number, name and category entered as POST arguments and modifies a row
+// in the DB with these values
 app.post('/modify', function(req,res){
       var con = mysql.createConnection({
       host: "localhost",
       user: "root",
       password: "root",
-      database: "DATABASE1"
+      database: "DATABASE2"
     });
     
 
@@ -95,6 +100,35 @@ app.post('/modify', function(req,res){
     });
 });
 
+// this function calls the database without any arguments.
+// It launches a query that groups similar rows together for a better readability
+app.get('/optimise', function(req,res){
+      var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "DATABASE2"
+    });
+    
+    //Doing two queries at once. Grouping up the rows
+
+    con.connect(function(err) 
+    {
+        if (err) throw err;
+        con.query("update partenaires p set p.nom = (select p1.nom from lol1 p1 where p.num_sir=p1.num_sir )", function (err, result) 
+        {
+            if (err) res.send("erreur");
+        });
+            // then deleting the NULL values left by the first query
+        con.query("delete from partenaires where nom IS NULL", function (err, result) 
+        {
+            if (err) res.send("erreur");
+            res.send("SUCCESS");
+        });
+    });
+});
+
+//used for unit Testing. sends a String response ment to be anylised as such
 app.post('/testpost', function(req,res){
       res.send("POST OK !");
 });

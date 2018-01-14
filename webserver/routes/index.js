@@ -10,7 +10,7 @@ router.get('/data', function(req, res, next) {
       host: "localhost",
       user: "root",
       password: "root",
-      database: "DATABASE1"
+      database: "DATABASE2"
     });
 
     con.connect(function(err) 

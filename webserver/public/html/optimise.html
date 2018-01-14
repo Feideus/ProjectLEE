@@ -32,24 +32,8 @@
                     <tbody id="tbody"></tbody>
                 </table>
             </div>
-            <div class="col-sm-4">
-                
-                
-                <button class="btn-primary" onclick="window.location.href='creation.html'">Nouveau Partenaria</button><br/>
-                <button class="btn-success" onclick="window.location.href=''+getGoodUrl('modification')">Modifier Partenaria</button><input id="num_sir_update" value="SIREN"/><br/>
-                <button class="btn-info" onclick="supprimerParternaria(detecNumSir('div_suppr'));window.location.href='exemple.html'">Supprimer partenaria</button><input id="div_suppr" value="SIREN"/><br/>
-                <button class="btn-warning" onclick="optimiserFiches()">Optimiser les fiches</button><br/>
-                <button class="btn-danger" onclick="window.location.href='tests.html'">Test connection</button>
-                        
-            </div>
-        
         </section>
         </div>    
-        <script> 
-                 infosPartenarias = (JSON.parse(httpGet('http://local.test:3000/data')));
-                 console.log(infosPartenarias);
-                 fillPartnershipGrid(infosPartenarias);
-        </script>
         <footer><p style="text-align: right;">Application Developped by Mr Chammakhi Khaled and Mr <a href='https://github.com/Feideus'>Ulrich Erwan</a></p></footer>
     </body>
     

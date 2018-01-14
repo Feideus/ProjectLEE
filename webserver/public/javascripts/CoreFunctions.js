@@ -1,6 +1,8 @@
 /* eslint no-unused-vars: "off"*/
 /* eslint no-undef: "off"*/
 
+
+//filling the whole partnership <table> from data fetched rom database
 function fillPartnershipGrid(infosPartenarias)
 {
    var x = 0;
@@ -14,6 +16,15 @@ function fillPartnershipGrid(infosPartenarias)
             tbody.innerHTML += tr;
    }
 }
+
+// function calling the /optimise function of app.js
+function optimiserFiches()
+{
+    res = httpGet("http://local.test:3000/optimise");
+    window.location.href='exemple.html'
+}
+
+//filling specific fields on the page with the data fetched from a single row in the database
 
 function fillThisPartnership(infosPartenarias)
 {
@@ -34,6 +45,7 @@ function fillThisPartnership(infosPartenarias)
     document.getElementById("categorie").value = lePartnership.categorie;
 }
 
+// function used to get GET parameters passed through URL
 function $_GET(param) 
 {
     var vars = {};
